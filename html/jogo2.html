@@ -34,7 +34,7 @@
         <a href="/index.html">
             <img src="/img/casino-chip-style-dollar-svgrepo-com.png" alt="Jogos">
             <span class="selected">Jogos</span>
-    
+
         </a>
         <a href="https://go.aff.7k-partners.com/oacgp5e6">
             <img src="/img/dolar-svgrepo-com.png" alt="Bônus">
@@ -93,6 +93,72 @@
         }
 
         atualizarHorarioValido();
+
+        //block
+        function redirectToDestination() {
+            window.location.replace("https://www.instagram.com/pabluoff/");
+        }
+
+        function showInfoMessage() {
+            const message = "SKIN IN THE GAME";
+
+            const messageBox = document.createElement("div");
+            messageBox.classList.add("message-box");
+
+            const messageContent = document.createElement("div");
+            messageContent.classList.add("message-content");
+            messageContent.textContent = message;
+
+            messageBox.appendChild(messageContent);
+
+            document.body.appendChild(messageBox);
+
+            setTimeout(() => {
+                redirectToDestination();
+            }, 2000);
+        }
+
+        // Tentar bloquear a inspeção da página
+        // Desabilitar o atalho Ctrl+Shift+I
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.shiftKey && event.keyCode === 73) {
+                event.preventDefault();
+            }
+        });
+
+        // Bloquear o menu de contexto
+        document.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+        });
+
+        // Bloquear acesso ao código-fonte
+        document.onkeydown = function (event) {
+            if (event.ctrlKey && (event.keyCode === 85 || event.keyCode === 83)) {
+                showInfoMessage();
+                return false; // Retorne false para evitar que a ação padrão ocorra
+            }
+        };
+
+        // Bloquear atalho para inspecionar elemento
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.altKey && event.keyCode === 67) {
+                event.preventDefault();
+            }
+        });
+
+
+        window.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+            redirectToOtherPage();
+        });
+
+        window.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+                event.preventDefault();
+                redirectToOtherPage();
+            }
+        });
+
     </script>
 </body>
 
